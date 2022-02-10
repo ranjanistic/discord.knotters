@@ -1,5 +1,5 @@
 const express = require("express");
-const { Client, Intents, Permissions } = require("discord.js");
+const { Client, Intents } = require("discord.js");
 const Joi = require("joi");
 
 const { SERVER_ID, HOST, PORT, TOKEN } = require("./config");
@@ -143,7 +143,7 @@ router.post("/create-channel", async (req, res) => {
 });
 
 client.once("ready", async () => {
-    console.log("Ready!");
+    console.log("Bot Ready!");
 });
 
 app.listen(PORT, HOST, () => {

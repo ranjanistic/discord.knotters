@@ -1,0 +1,22 @@
+name: Discordbot Deploy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**.js"
+      - "**.json"
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, Linux, discordbot]
+    strategy:
+      max-parallel: 1
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - name: Merge changes
+      run: |
+        git pull origin main
+    - run: npm install
