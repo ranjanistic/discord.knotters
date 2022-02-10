@@ -21,7 +21,7 @@ router.use(authorization);
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 
-router.post("/create-channel", async (req, res) => {
+router.post("/discord/create-channel", async (req, res) => {
     try {
         const { error, value } = Joi.object({
             channel_name: Joi.string()
