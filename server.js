@@ -15,7 +15,7 @@ app.use(accessLogger);
 
 app.use(errorLogger);
 
-router.set('trust proxy',true);
+
 app.use(router);
 
 router.use(authorization);
