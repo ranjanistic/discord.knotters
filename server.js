@@ -10,7 +10,7 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
 const app = express();
 const router = express.Router();
-
+app.set('trust proxy',true);
 app.use(accessLogger);
 
 app.use(errorLogger);
