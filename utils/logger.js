@@ -6,7 +6,7 @@ const accessLogTransports = []
 const errorLogTransports = []
 
 
-if(IS_PRODUCTION){
+if(!IS_PRODUCTION){
     accessLogTransports.push(
         new winston.transports.File({ filename: path.join(LOG_DIR,"access.log") })
     )
