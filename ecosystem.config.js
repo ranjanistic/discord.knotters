@@ -1,7 +1,7 @@
 module.exports = {
     apps: [
         {
-            name: "bot.knotters.org",
+            name: "bot.knotters.org/discord",
             script: "./server.js",
             instances: "max",
             env: {
