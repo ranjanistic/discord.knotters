@@ -17,5 +17,5 @@ client.once("ready", async () => {
 app.listen(PORT, HOST, async () => {
     console.log("listening ", PORT, HOST);
     await client.login(TOKEN);
-    app.use('/discord', require("./discord")(client));
+    app.use("/discord", require("./discord")(client));
 });
