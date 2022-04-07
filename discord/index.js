@@ -125,12 +125,12 @@ router.post("/create-channel", authorization, async (req, res) => {
     }
 });
 
-router.use("/", (req, res) => {
+router.get("/", (req, res) => {
     res.json({
         ok: client ? true : false,
         message: client
             ? "Knotters Discord Bot is online. Thank you for checking up on us."
-            : "There is a problem, we're not online! But thank you for checking up on us.",
+            : "There is a problem, the bot is not online! But thank you for checking up on us.",
     });
 });
 
