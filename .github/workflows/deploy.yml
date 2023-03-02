@@ -4,19 +4,22 @@ on:
   push:
     branches: [main]
     paths:
-      - "**.js"
+#      - "**.js"
       - "**.json"
 
 jobs:
   deploy:
-    runs-on: [self-hosted, Linux, discordbot]
+    runs-on: [self-hosted, Linux, discordbot, production, knotters]
     strategy:
       max-parallel: 1
       matrix:
-        node-version: [16.x]
-
+        node-version: [18.x]
     steps:
-    - name: Merge changes
-      run: |
-        git pull origin main
-    - run: npm install
+    - uses: actions/checkout@v2
+      with:
+        clean: false
+    - run: |
+        export PATH="$PATH:/home/ubuntu/.nvm/versions/node/v18.14.2/bin"
+        npm install
+        echo "${{ secrets.ENV_PROD }}" > .env 
+        pm2 reload ecosystem.config.js --update-env
